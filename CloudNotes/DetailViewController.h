@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "NoteDocument.h"
 
-@interface DetailViewController : UIViewController <UISplitViewControllerDelegate, NoteDocumentDeletate>
+@interface DetailViewController : UIViewController <UISplitViewControllerDelegate, NoteDocumentDeletate, UITextViewDelegate>
 
 @property (strong, nonatomic) id detailItem;
 
 @property (strong, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+
+@property (strong, nonatomic) NoteDocument *document;
 
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @end

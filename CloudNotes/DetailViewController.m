@@ -19,6 +19,7 @@
 @synthesize detailDescriptionLabel = _detailDescriptionLabel;
 @synthesize textView = _textView;
 @synthesize masterPopoverController = _masterPopoverController;
+@synthesize document = _document;
 
 #pragma mark - Managing the detail item
 
@@ -126,11 +127,14 @@
 #pragma mark - NoteDocument delegate
 - (void)noteDocumentContentsUpdated:(NoteDocument *)document
 {
-	
+	[[self textView] setText:[document documentText]];
 }
 
+#pragma mark - UITextView delegate
 - (void)textViewDidChange:(UITextView *)textView
 {
-	
+	[[self document] setDocumentText:[textView text]];
+	// Trigger auto-save
+	[[self document] updateChangeCount:UIDocumentChangeDone];
 }
 @end
