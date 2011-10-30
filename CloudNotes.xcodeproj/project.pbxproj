@@ -24,6 +24,7 @@
 		EE2FF8CC145E068F00325B4A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE2FF8A1145E068E00325B4A /* Foundation.framework */; };
 		EE2FF8D4145E068F00325B4A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE2FF8D2145E068F00325B4A /* InfoPlist.strings */; };
 		EE2FF8D7145E068F00325B4A /* CloudNotesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE2FF8D6145E068F00325B4A /* CloudNotesTests.m */; };
+		EE2FF8E5145E08B400325B4A /* NoteDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = EE2FF8E4145E08B400325B4A /* NoteDocument.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		EE2FF8D3145E068F00325B4A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EE2FF8D5145E068F00325B4A /* CloudNotesTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CloudNotesTests.h; sourceTree = "<group>"; };
 		EE2FF8D6145E068F00325B4A /* CloudNotesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CloudNotesTests.m; sourceTree = "<group>"; };
+		EE2FF8E3145E08B400325B4A /* NoteDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteDocument.h; sourceTree = "<group>"; };
+		EE2FF8E4145E08B400325B4A /* NoteDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteDocument.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 		EE2FF8A5145E068E00325B4A /* CloudNotes */ = {
 			isa = PBXGroup;
 			children = (
+				EE2FF8E3145E08B400325B4A /* NoteDocument.h */,
+				EE2FF8E4145E08B400325B4A /* NoteDocument.m */,
 				EE2FF8AE145E068E00325B4A /* AppDelegate.h */,
 				EE2FF8AF145E068E00325B4A /* AppDelegate.m */,
 				EE2FF8B1145E068E00325B4A /* MasterViewController.h */,
@@ -279,6 +284,7 @@
 				EE2FF8B0145E068E00325B4A /* AppDelegate.m in Sources */,
 				EE2FF8B3145E068E00325B4A /* MasterViewController.m in Sources */,
 				EE2FF8B6145E068E00325B4A /* DetailViewController.m in Sources */,
+				EE2FF8E5145E08B400325B4A /* NoteDocument.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
