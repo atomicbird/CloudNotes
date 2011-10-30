@@ -1,0 +1,489 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EE2FF8A0145E068E00325B4A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE2FF89F145E068E00325B4A /* UIKit.framework */; };
+		EE2FF8A2145E068E00325B4A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE2FF8A1145E068E00325B4A /* Foundation.framework */; };
+		EE2FF8A4145E068E00325B4A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE2FF8A3145E068E00325B4A /* CoreGraphics.framework */; };
+		EE2FF8AA145E068E00325B4A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE2FF8A8145E068E00325B4A /* InfoPlist.strings */; };
+		EE2FF8AC145E068E00325B4A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE2FF8AB145E068E00325B4A /* main.m */; };
+		EE2FF8B0145E068E00325B4A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE2FF8AF145E068E00325B4A /* AppDelegate.m */; };
+		EE2FF8B3145E068E00325B4A /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE2FF8B2145E068E00325B4A /* MasterViewController.m */; };
+		EE2FF8B6145E068E00325B4A /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE2FF8B5145E068E00325B4A /* DetailViewController.m */; };
+		EE2FF8B9145E068F00325B4A /* MasterViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE2FF8B7145E068F00325B4A /* MasterViewController_iPhone.xib */; };
+		EE2FF8BC145E068F00325B4A /* MasterViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE2FF8BA145E068F00325B4A /* MasterViewController_iPad.xib */; };
+		EE2FF8BF145E068F00325B4A /* DetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE2FF8BD145E068F00325B4A /* DetailViewController_iPhone.xib */; };
+		EE2FF8C2145E068F00325B4A /* DetailViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE2FF8C0145E068F00325B4A /* DetailViewController_iPad.xib */; };
+		EE2FF8CA145E068F00325B4A /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE2FF8C9145E068F00325B4A /* SenTestingKit.framework */; };
+		EE2FF8CB145E068F00325B4A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE2FF89F145E068E00325B4A /* UIKit.framework */; };
+		EE2FF8CC145E068F00325B4A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE2FF8A1145E068E00325B4A /* Foundation.framework */; };
+		EE2FF8D4145E068F00325B4A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE2FF8D2145E068F00325B4A /* InfoPlist.strings */; };
+		EE2FF8D7145E068F00325B4A /* CloudNotesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE2FF8D6145E068F00325B4A /* CloudNotesTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EE2FF8CD145E068F00325B4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE2FF892145E068E00325B4A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE2FF89A145E068E00325B4A;
+			remoteInfo = CloudNotes;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EE2FF89B145E068E00325B4A /* CloudNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE2FF89F145E068E00325B4A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		EE2FF8A1145E068E00325B4A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EE2FF8A3145E068E00325B4A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EE2FF8A7145E068E00325B4A /* CloudNotes-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CloudNotes-Info.plist"; sourceTree = "<group>"; };
+		EE2FF8A9145E068E00325B4A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EE2FF8AB145E068E00325B4A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EE2FF8AD145E068E00325B4A /* CloudNotes-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CloudNotes-Prefix.pch"; sourceTree = "<group>"; };
+		EE2FF8AE145E068E00325B4A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EE2FF8AF145E068E00325B4A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EE2FF8B1145E068E00325B4A /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		EE2FF8B2145E068E00325B4A /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		EE2FF8B4145E068E00325B4A /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		EE2FF8B5145E068E00325B4A /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		EE2FF8B8145E068F00325B4A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MasterViewController_iPhone.xib; sourceTree = "<group>"; };
+		EE2FF8BB145E068F00325B4A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MasterViewController_iPad.xib; sourceTree = "<group>"; };
+		EE2FF8BE145E068F00325B4A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController_iPhone.xib; sourceTree = "<group>"; };
+		EE2FF8C1145E068F00325B4A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController_iPad.xib; sourceTree = "<group>"; };
+		EE2FF8C8145E068F00325B4A /* CloudNotesTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CloudNotesTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE2FF8C9145E068F00325B4A /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		EE2FF8D1145E068F00325B4A /* CloudNotesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CloudNotesTests-Info.plist"; sourceTree = "<group>"; };
+		EE2FF8D3145E068F00325B4A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EE2FF8D5145E068F00325B4A /* CloudNotesTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CloudNotesTests.h; sourceTree = "<group>"; };
+		EE2FF8D6145E068F00325B4A /* CloudNotesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CloudNotesTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EE2FF898145E068E00325B4A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE2FF8A0145E068E00325B4A /* UIKit.framework in Frameworks */,
+				EE2FF8A2145E068E00325B4A /* Foundation.framework in Frameworks */,
+				EE2FF8A4145E068E00325B4A /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE2FF8C4145E068F00325B4A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE2FF8CA145E068F00325B4A /* SenTestingKit.framework in Frameworks */,
+				EE2FF8CB145E068F00325B4A /* UIKit.framework in Frameworks */,
+				EE2FF8CC145E068F00325B4A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EE2FF890145E068E00325B4A = {
+			isa = PBXGroup;
+			children = (
+				EE2FF8A5145E068E00325B4A /* CloudNotes */,
+				EE2FF8CF145E068F00325B4A /* CloudNotesTests */,
+				EE2FF89E145E068E00325B4A /* Frameworks */,
+				EE2FF89C145E068E00325B4A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EE2FF89C145E068E00325B4A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE2FF89B145E068E00325B4A /* CloudNotes.app */,
+				EE2FF8C8145E068F00325B4A /* CloudNotesTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EE2FF89E145E068E00325B4A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EE2FF89F145E068E00325B4A /* UIKit.framework */,
+				EE2FF8A1145E068E00325B4A /* Foundation.framework */,
+				EE2FF8A3145E068E00325B4A /* CoreGraphics.framework */,
+				EE2FF8C9145E068F00325B4A /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EE2FF8A5145E068E00325B4A /* CloudNotes */ = {
+			isa = PBXGroup;
+			children = (
+				EE2FF8AE145E068E00325B4A /* AppDelegate.h */,
+				EE2FF8AF145E068E00325B4A /* AppDelegate.m */,
+				EE2FF8B1145E068E00325B4A /* MasterViewController.h */,
+				EE2FF8B2145E068E00325B4A /* MasterViewController.m */,
+				EE2FF8B4145E068E00325B4A /* DetailViewController.h */,
+				EE2FF8B5145E068E00325B4A /* DetailViewController.m */,
+				EE2FF8B7145E068F00325B4A /* MasterViewController_iPhone.xib */,
+				EE2FF8BA145E068F00325B4A /* MasterViewController_iPad.xib */,
+				EE2FF8BD145E068F00325B4A /* DetailViewController_iPhone.xib */,
+				EE2FF8C0145E068F00325B4A /* DetailViewController_iPad.xib */,
+				EE2FF8A6145E068E00325B4A /* Supporting Files */,
+			);
+			path = CloudNotes;
+			sourceTree = "<group>";
+		};
+		EE2FF8A6145E068E00325B4A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EE2FF8A7145E068E00325B4A /* CloudNotes-Info.plist */,
+				EE2FF8A8145E068E00325B4A /* InfoPlist.strings */,
+				EE2FF8AB145E068E00325B4A /* main.m */,
+				EE2FF8AD145E068E00325B4A /* CloudNotes-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EE2FF8CF145E068F00325B4A /* CloudNotesTests */ = {
+			isa = PBXGroup;
+			children = (
+				EE2FF8D5145E068F00325B4A /* CloudNotesTests.h */,
+				EE2FF8D6145E068F00325B4A /* CloudNotesTests.m */,
+				EE2FF8D0145E068F00325B4A /* Supporting Files */,
+			);
+			path = CloudNotesTests;
+			sourceTree = "<group>";
+		};
+		EE2FF8D0145E068F00325B4A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EE2FF8D1145E068F00325B4A /* CloudNotesTests-Info.plist */,
+				EE2FF8D2145E068F00325B4A /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EE2FF89A145E068E00325B4A /* CloudNotes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE2FF8DA145E068F00325B4A /* Build configuration list for PBXNativeTarget "CloudNotes" */;
+			buildPhases = (
+				EE2FF897145E068E00325B4A /* Sources */,
+				EE2FF898145E068E00325B4A /* Frameworks */,
+				EE2FF899145E068E00325B4A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CloudNotes;
+			productName = CloudNotes;
+			productReference = EE2FF89B145E068E00325B4A /* CloudNotes.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EE2FF8C7145E068F00325B4A /* CloudNotesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE2FF8DD145E068F00325B4A /* Build configuration list for PBXNativeTarget "CloudNotesTests" */;
+			buildPhases = (
+				EE2FF8C3145E068F00325B4A /* Sources */,
+				EE2FF8C4145E068F00325B4A /* Frameworks */,
+				EE2FF8C5145E068F00325B4A /* Resources */,
+				EE2FF8C6145E068F00325B4A /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE2FF8CE145E068F00325B4A /* PBXTargetDependency */,
+			);
+			name = CloudNotesTests;
+			productName = CloudNotesTests;
+			productReference = EE2FF8C8145E068F00325B4A /* CloudNotesTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EE2FF892145E068E00325B4A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Atomic Bird, LLC";
+			};
+			buildConfigurationList = EE2FF895145E068E00325B4A /* Build configuration list for PBXProject "CloudNotes" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = EE2FF890145E068E00325B4A;
+			productRefGroup = EE2FF89C145E068E00325B4A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EE2FF89A145E068E00325B4A /* CloudNotes */,
+				EE2FF8C7145E068F00325B4A /* CloudNotesTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EE2FF899145E068E00325B4A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE2FF8AA145E068E00325B4A /* InfoPlist.strings in Resources */,
+				EE2FF8B9145E068F00325B4A /* MasterViewController_iPhone.xib in Resources */,
+				EE2FF8BC145E068F00325B4A /* MasterViewController_iPad.xib in Resources */,
+				EE2FF8BF145E068F00325B4A /* DetailViewController_iPhone.xib in Resources */,
+				EE2FF8C2145E068F00325B4A /* DetailViewController_iPad.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE2FF8C5145E068F00325B4A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE2FF8D4145E068F00325B4A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EE2FF8C6145E068F00325B4A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EE2FF897145E068E00325B4A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE2FF8AC145E068E00325B4A /* main.m in Sources */,
+				EE2FF8B0145E068E00325B4A /* AppDelegate.m in Sources */,
+				EE2FF8B3145E068E00325B4A /* MasterViewController.m in Sources */,
+				EE2FF8B6145E068E00325B4A /* DetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE2FF8C3145E068F00325B4A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE2FF8D7145E068F00325B4A /* CloudNotesTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EE2FF8CE145E068F00325B4A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE2FF89A145E068E00325B4A /* CloudNotes */;
+			targetProxy = EE2FF8CD145E068F00325B4A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EE2FF8A8145E068E00325B4A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE2FF8A9145E068E00325B4A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		EE2FF8B7145E068F00325B4A /* MasterViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE2FF8B8145E068F00325B4A /* en */,
+			);
+			name = MasterViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		EE2FF8BA145E068F00325B4A /* MasterViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE2FF8BB145E068F00325B4A /* en */,
+			);
+			name = MasterViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+		EE2FF8BD145E068F00325B4A /* DetailViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE2FF8BE145E068F00325B4A /* en */,
+			);
+			name = DetailViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		EE2FF8C0145E068F00325B4A /* DetailViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE2FF8C1145E068F00325B4A /* en */,
+			);
+			name = DetailViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+		EE2FF8D2145E068F00325B4A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE2FF8D3145E068F00325B4A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EE2FF8D8145E068F00325B4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EE2FF8D9145E068F00325B4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EE2FF8DB145E068F00325B4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CloudNotes/CloudNotes-Prefix.pch";
+				INFOPLIST_FILE = "CloudNotes/CloudNotes-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		EE2FF8DC145E068F00325B4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CloudNotes/CloudNotes-Prefix.pch";
+				INFOPLIST_FILE = "CloudNotes/CloudNotes-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		EE2FF8DE145E068F00325B4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CloudNotes.app/CloudNotes";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CloudNotes/CloudNotes-Prefix.pch";
+				INFOPLIST_FILE = "CloudNotesTests/CloudNotesTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		EE2FF8DF145E068F00325B4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CloudNotes.app/CloudNotes";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CloudNotes/CloudNotes-Prefix.pch";
+				INFOPLIST_FILE = "CloudNotesTests/CloudNotesTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EE2FF895145E068E00325B4A /* Build configuration list for PBXProject "CloudNotes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE2FF8D8145E068F00325B4A /* Debug */,
+				EE2FF8D9145E068F00325B4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE2FF8DA145E068F00325B4A /* Build configuration list for PBXNativeTarget "CloudNotes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE2FF8DB145E068F00325B4A /* Debug */,
+				EE2FF8DC145E068F00325B4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		EE2FF8DD145E068F00325B4A /* Build configuration list for PBXNativeTarget "CloudNotesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE2FF8DE145E068F00325B4A /* Debug */,
+				EE2FF8DF145E068F00325B4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EE2FF892145E068E00325B4A /* Project object */;
+}
