@@ -16,6 +16,6 @@
 
 @interface NoteDocument : UIDocument
 
-@property (strong, readonly) NSString *documentText;
+@property (strong, readwrite) NSString *documentText;
 @property (weak, readwrite) id delegate;
 @end

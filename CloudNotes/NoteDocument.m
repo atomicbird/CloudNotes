@@ -8,10 +8,6 @@
 
 #import "NoteDocument.h"
 
-@interface NoteDocument ()
-@property (strong, readwrite) NSString *documentText;
-@end
-
 @implementation NoteDocument
 @synthesize documentText = __documentText;
 @synthesize delegate = __delegate;
