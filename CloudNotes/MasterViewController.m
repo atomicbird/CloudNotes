@@ -13,6 +13,7 @@
 @interface MasterViewController ()
 @property (strong, readwrite) NSMetadataQuery *metadataQuery;
 @property (strong, readwrite) NSMutableArray *fileList;
+@property (weak, readwrite) NoteDocument *currentDocument;
 
 - (NSURL*)localDocumentsDirectoryURL;
 @end
@@ -22,6 +23,7 @@
 @synthesize detailViewController = _detailViewController;
 @synthesize metadataQuery = _metadataQuery;
 @synthesize fileList = _fileList;
+@synthesize currentDocument = _currentDocument;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -178,6 +180,15 @@
         [self.navigationController pushViewController:self.detailViewController animated:YES];
     }
     NoteDocument *document = [[self fileList] objectAtIndex:indexPath.row];
+    if ([self currentDocument] != nil) {
+        [[self currentDocument] closeWithCompletionHandler:^(BOOL success) {
+            
+        }];
+    }
+    [self setCurrentDocument:document];
+    [[self currentDocument] openWithCompletionHandler:^(BOOL success) {
+        
+    }];
     [[self detailViewController] setDocument:document];
 }
 
