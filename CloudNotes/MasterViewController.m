@@ -187,9 +187,8 @@
     }
     [self setCurrentDocument:document];
     [[self currentDocument] openWithCompletionHandler:^(BOOL success) {
-        
+        [[self detailViewController] setDocument:document];
     }];
-    [[self detailViewController] setDocument:document];
 }
 
 #pragma mark - File creation
