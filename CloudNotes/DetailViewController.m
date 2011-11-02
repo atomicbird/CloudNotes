@@ -41,7 +41,9 @@
 
 	if (self.document) {
         [[self textView] setText:[[self document] documentText]];
-	}
+	} else {
+        [[self textView] setText:@""];
+    }
 }
 
 - (void)didReceiveMemoryWarning

@@ -207,7 +207,9 @@
 			NSIndexPath *newDocumentPath = [NSIndexPath indexPathForRow:([[self fileList] count]-1) inSection:0];
 			[[self tableView] selectRowAtIndexPath:newDocumentPath animated:YES scrollPosition:UITableViewScrollPositionNone];
             
-            //[[self detailViewController] setDocument:newDocument];
+            if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+                [[self detailViewController] setDocument:newDocument];
+            }
 		}
 	}];
 }
