@@ -480,6 +480,7 @@
 				EE2FF8DC145E068F00325B4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EE2FF8DD145E068F00325B4A /* Build configuration list for PBXNativeTarget "CloudNotesTests" */ = {
 			isa = XCConfigurationList;
@@ -488,6 +489,7 @@
 				EE2FF8DF145E068F00325B4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

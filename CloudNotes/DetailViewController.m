@@ -15,18 +15,16 @@
 
 @implementation DetailViewController
 
-@synthesize detailItem = _detailItem;
-@synthesize detailDescriptionLabel = _detailDescriptionLabel;
 @synthesize textView = _textView;
 @synthesize masterPopoverController = _masterPopoverController;
 @synthesize document = _document;
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(id)newDetailItem
+- (void)setDocument:(NoteDocument *)newDocument
 {
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
+    if (_document != newDocument) {
+        _document = newDocument;
         
         // Update the view.
         [self configureView];
@@ -41,8 +39,8 @@
 {
     // Update the user interface for the detail item.
 
-	if (self.detailItem) {
-	    self.detailDescriptionLabel.text = [self.detailItem description];
+	if (self.document) {
+        [[self textView] setText:[[self document] documentText]];
 	}
 }
 
