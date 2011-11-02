@@ -16,6 +16,7 @@
 @property (weak, readwrite) NoteDocument *currentDocument;
 
 - (NSURL*)localDocumentsDirectoryURL;
+- (NSURL*)ubiquitousDocumentsDirectoryURL;
 @end
 
 @implementation MasterViewController
@@ -60,7 +61,7 @@
 
 	[self setMetadataQuery:[[NSMetadataQuery alloc] init]];
 	[[self metadataQuery] setSearchScopes:[NSArray arrayWithObject:NSMetadataQueryUbiquitousDocumentsScope]];
-	[[self metadataQuery] setPredicate:[NSPredicate predicateWithFormat:@"%K = '*.txt'", NSMetadataItemFSNameKey]];
+	[[self metadataQuery] setPredicate:[NSPredicate predicateWithFormat:@"%K ENDSWITH '.txt'", NSMetadataItemFSNameKey]];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fileListReceived) name:NSMetadataQueryDidFinishGatheringNotification object:[self metadataQuery]];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fileListReceived) name:NSMetadataQueryDidUpdateNotification object:[self metadataQuery]];
 	[[self metadataQuery] startQuery];
@@ -81,6 +82,11 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    if ([self currentDocument] != nil) {
+        [[self currentDocument] closeWithCompletionHandler:^(BOOL success) {
+            
+        }];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -129,7 +135,7 @@
 
 	// Configure the cell.
     NoteDocument *document = [[self fileList] objectAtIndex:indexPath.row];
-	cell.textLabel.text = [document localizedName];
+	cell.textLabel.text = [document filename];
     return cell;
 }
 
@@ -180,15 +186,14 @@
         [self.navigationController pushViewController:self.detailViewController animated:YES];
     }
     NoteDocument *document = [[self fileList] objectAtIndex:indexPath.row];
-    if ([self currentDocument] != nil) {
-        [[self currentDocument] closeWithCompletionHandler:^(BOOL success) {
-            
+    if (document != [self currentDocument]) {
+        [self setCurrentDocument:document];
+        [[self currentDocument] openWithCompletionHandler:^(BOOL success) {
+            [[self detailViewController] setDocument:document];
         }];
-    }
-    [self setCurrentDocument:document];
-    [[self currentDocument] openWithCompletionHandler:^(BOOL success) {
+    } else {
         [[self detailViewController] setDocument:document];
-    }];
+    }
 }
 
 #pragma mark - File creation
@@ -209,6 +214,7 @@
 	NSLog(@"Local file URL: %@", localFileURL);
 	
 	NoteDocument *newDocument = [[NoteDocument alloc] initWithFileURL:localFileURL];
+    [newDocument setFilename:filename];
     // Should really check to see if a file exists with the name
 	[newDocument saveToURL:localFileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
 		if (success) {
@@ -220,6 +226,19 @@
             if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
                 [[self detailViewController] setDocument:newDocument];
             }
+            
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                // Move the new document to the cloud.
+                // Don't do this on the main thread, it might block too long.
+                // From NSFileManager docs:
+                // "For files located in an application’s sandbox, this involves physically removing the file from the sandbox directory."
+                NSURL *destinationURL = [[self ubiquitousDocumentsDirectoryURL] URLByAppendingPathComponent:filename];
+                NSError *moveToCloudError = nil;
+                BOOL success = [[NSFileManager defaultManager] setUbiquitous:YES itemAtURL:[newDocument fileURL] destinationURL:destinationURL error:&moveToCloudError];
+                if (!success) {
+                    NSLog(@"Error moving to iCloud: %@", moveToCloudError);
+                }
+            });
 		}
 	}];
 }
@@ -241,10 +260,14 @@
 {
 	// Get currently selected file and save it
 	NSString *selectedFileName = nil;
-	NSInteger selectedRow = [[[self tableView] indexPathForSelectedRow] row];
-	if (selectedRow != NSNotFound) {
-		selectedFileName = [[[self fileList] objectAtIndex:selectedRow] localizedName];
-	}
+    NSIndexPath *selectedRowIndex = [[self tableView] indexPathForSelectedRow];
+    NSInteger selectedRow = NSNotFound;
+    if (selectedRowIndex != nil) {
+        selectedRow = [selectedRowIndex row];
+        if (selectedRow != NSNotFound) {
+            selectedFileName = [[[self fileList] objectAtIndex:selectedRow] localizedName];
+        }
+    }
 	
 	// Build the new file list
 	[[self fileList] removeAllObjects];
@@ -254,7 +277,9 @@
 		if ((selectedFileName != nil) && ([selectedFileName isEqualToString:filename])) {
 			selectedRow = [[self fileList] count];
 		}
-		[[self fileList] addObject:[[NoteDocument alloc] initWithFileURL:[result valueForAttribute:NSMetadataItemURLKey]]];
+        NoteDocument *document = [[NoteDocument alloc] initWithFileURL:[result valueForAttribute:NSMetadataItemURLKey]];
+        [document setFilename:filename];
+		[[self fileList] addObject:document];
 	}
 	
 	[[self tableView] reloadData];
@@ -274,6 +299,28 @@
         localDocumentsDirectoryURL = [NSURL fileURLWithPath:documentsDirectoryPath];
     }
     return localDocumentsDirectoryURL;
+}
+
+- (NSURL*)ubiquitousContainerURL
+{
+    return [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
+}
+
+- (NSURL*)ubiquitousDocumentsDirectoryURL
+{
+    NSURL *ubiquitousDocumentsURL = [[self ubiquitousContainerURL] URLByAppendingPathComponent:@"Documents"];
+    if (ubiquitousDocumentsURL != nil) {
+        if (![[NSFileManager defaultManager] fileExistsAtPath:[ubiquitousDocumentsURL path]]) {
+            NSError *createDirectoryError = nil;
+            BOOL created = [[NSFileManager defaultManager] createDirectoryAtURL:ubiquitousDocumentsURL withIntermediateDirectories:NO attributes:0 error:&createDirectoryError];
+            if (!created) {
+                NSLog(@"Error creating directory at %@: %@", ubiquitousDocumentsURL, createDirectoryError);
+            }
+        }
+    } else {
+        NSLog(@"Error getting ubiquitous container URL");
+    }
+    return ubiquitousDocumentsURL;
 }
 
 @end
