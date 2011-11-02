@@ -11,6 +11,7 @@
 @implementation NoteDocument
 @synthesize documentText = __documentText;
 @synthesize delegate = __delegate;
+@synthesize filename = __filename;
 
 - (BOOL)loadFromContents:(id)contents ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError
 {
