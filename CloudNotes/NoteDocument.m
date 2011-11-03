@@ -36,4 +36,9 @@
 	}
 	return [NSData dataWithBytes:[[self documentText] UTF8String] length:[[self documentText] length]];
 }
+
+- (void)setFilename:(NSString *)filename
+{
+    __filename = [filename stringByDeletingPathExtension];
+}
 @end
