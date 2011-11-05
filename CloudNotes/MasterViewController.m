@@ -82,11 +82,6 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    if ([self currentDocument] != nil) {
-        [[self currentDocument] closeWithCompletionHandler:^(BOOL success) {
-            
-        }];
-    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -185,9 +180,19 @@
 	    }
         [self.navigationController pushViewController:self.detailViewController animated:YES];
     }
+    
+    // Close the current document
+    if (!([[self currentDocument] documentState] & UIDocumentStateClosed)) {
+        [[self currentDocument] closeWithCompletionHandler:^(BOOL success) {
+            
+        }];
+    }
+    
+    // Get the new document
     NoteDocument *document = [[self fileList] objectAtIndex:indexPath.row];
-    if (document != [self currentDocument]) {
-        [self setCurrentDocument:document];
+    [self setCurrentDocument:document];
+    if ([document documentState] & UIDocumentStateClosed) {
+        // Open if needed
         [[self currentDocument] openWithCompletionHandler:^(BOOL success) {
             [[self detailViewController] setDocument:document];
         }];
@@ -255,6 +260,30 @@
 	}
 }
 
+// This method is straight out of the docs...
+- (BOOL)downloadFileIfNotAvailable:(NSURL*)file {
+    NSNumber*  isIniCloud = nil;
+    
+    if ([file getResourceValue:&isIniCloud forKey:NSURLIsUbiquitousItemKey error:nil]) {
+        // If the item is in iCloud, see if it is downloaded.
+        if ([isIniCloud boolValue]) {
+            NSNumber*  isDownloaded = nil;
+            if ([file getResourceValue:&isDownloaded forKey:NSURLUbiquitousItemIsDownloadedKey error:nil]) {
+                if ([isDownloaded boolValue])
+                    return YES;
+				
+                // Download the file.
+                NSFileManager*  fm = [NSFileManager defaultManager];
+                [fm startDownloadingUbiquitousItemAtURL:file error:nil];
+                return NO;
+            }
+        }
+    }
+    
+    // Return YES as long as an explicit download was not started.
+    return YES;
+}
+
 #pragma mark - NSMetadataQuery lookup
 - (void)fileListReceived
 {
@@ -277,9 +306,11 @@
 		if ((selectedFileName != nil) && ([selectedFileName isEqualToString:filename])) {
 			selectedRow = [[self fileList] count];
 		}
-        NoteDocument *document = [[NoteDocument alloc] initWithFileURL:[result valueForAttribute:NSMetadataItemURLKey]];
+        NSURL *documentURL = [result valueForAttribute:NSMetadataItemURLKey];
+        NoteDocument *document = [[NoteDocument alloc] initWithFileURL:documentURL];
         [document setFilename:filename];
 		[[self fileList] addObject:document];
+        [self downloadFileIfNotAvailable:documentURL];
 	}
 	
 	[[self tableView] reloadData];
