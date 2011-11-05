@@ -293,7 +293,7 @@
     if (selectedRowIndex != nil) {
         selectedRow = [selectedRowIndex row];
         if (selectedRow != NSNotFound) {
-            selectedFileName = [[[self fileList] objectAtIndex:selectedRow] localizedName];
+            selectedFileName = [[[[self fileList] objectAtIndex:selectedRow] fileURL] lastPathComponent];
         }
     }
 	
