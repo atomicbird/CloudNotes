@@ -18,5 +18,4 @@
 
 @property (strong, readwrite) NSString *documentText;
 @property (weak, readwrite) id delegate;
-@property (strong, nonatomic) NSString *filename;
 @end

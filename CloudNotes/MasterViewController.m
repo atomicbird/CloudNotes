@@ -130,7 +130,7 @@
 
 	// Configure the cell.
     NoteDocument *document = [[self fileList] objectAtIndex:indexPath.row];
-	cell.textLabel.text = [document filename];
+	cell.textLabel.text = [[document fileURL] lastPathComponent];
     return cell;
 }
 
@@ -219,7 +219,6 @@
 	NSLog(@"Local file URL: %@", localFileURL);
 	
 	NoteDocument *newDocument = [[NoteDocument alloc] initWithFileURL:localFileURL];
-    [newDocument setFilename:filename];
     // Should really check to see if a file exists with the name
 	[newDocument saveToURL:localFileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
 		if (success) {
@@ -308,7 +307,6 @@
 		}
         NSURL *documentURL = [result valueForAttribute:NSMetadataItemURLKey];
         NoteDocument *document = [[NoteDocument alloc] initWithFileURL:documentURL];
-        [document setFilename:filename];
 		[[self fileList] addObject:document];
         [self downloadFileIfNotAvailable:documentURL];
 	}
